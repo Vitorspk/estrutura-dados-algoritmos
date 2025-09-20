@@ -12,12 +12,11 @@ public class Lista<T> {
 		this.tamanho = 0;
 	}
 
-//	public Lista(int capacidade, Class<T> tipoClasse) {
-//		this.elementos = (T[]) Array.newInstance(tipoClasse, capacidade);
-//		this.tamanho = 0;
-//	}
-	
-	//adiciona dados no array.
+	/**
+	 * Adiciona um elemento ao final do vetor.
+	 * @param elemento a ser adicionado
+	 * @return true se o elemento foi adicionado com sucesso
+	 */
 	public boolean adiciona(T elemento) {
 		this.aumentaCapacidade();
 		if (tamanho < this.elementos.length) {
@@ -28,6 +27,12 @@ public class Lista<T> {
 		return false;
 	}
 	
+	/**
+	 * Adiciona um elemento em uma determinada posição do vetor.
+	 * @param posicao em que o elemento será adicionado
+	 * @param elemento a ser adicionado
+	 * @return true se o elemento foi adicionado com sucesso
+	 */
 	public boolean adiciona(int posicao, T elemento){
 		
 		if (!(posicao >= 0 && posicao < tamanho)) {
@@ -59,7 +64,11 @@ public class Lista<T> {
 	}
 	
 	
-	//verifica se o elemento existe e a posi��o.
+	/**
+	 * Busca um elemento pela posição no vetor.
+	 * @param posicao do elemento a ser buscado
+	 * @return o elemento da posição
+	 */
 	public T busca(int posicao) {
 		if (!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao invalida");
@@ -67,9 +76,13 @@ public class Lista<T> {
 		return this.elementos[posicao];
 	}
 
-	// verifica se o elemento existe no vetor;
-	public int busca(T elemento) {
-		// algoritmo de ( Busca sequencial ) olha posi��o por posi��o se � o elemento que procuramos.
+	/**
+	 * Busca a posição de um elemento no vetor.
+	 * @param elemento a ser buscado
+	 * @return a posição do elemento no vetor, ou -1 se não existir
+	 */
+	public int indexOf(T elemento) {
+		// algoritmo de ( Busca sequencial ) olha posição por posição se é o elemento que procuramos.
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
 				return i;
@@ -78,15 +91,35 @@ public class Lista<T> {
 		return -1;
 	}
 	
-	
+	/**
+	 * Remove um elemento do vetor.
+	 * @param elemento a ser removido
+	 */
 	public void remove(T elemento){
-		int pos = this.busca(elemento);
+		int pos = this.indexOf(elemento);
 		if(pos > -1){
-			this.remove(elemento);
+			this.remove(pos);
 		}
 	}
 	
-	//verifico o tamanho real do vetor.
+	/**
+	 * Remove um elemento de uma determinada posição do vetor.
+	 * @param posicao do elemento a ser removido
+	 */
+	public void remove(int posicao){
+		if (!(posicao >= 0 && posicao < tamanho)) {
+			throw new IllegalArgumentException("Posicao invalida");
+		}
+		for(int i=posicao; i<this.tamanho-1; i++){
+			this.elementos[i] = this.elementos[i+1];
+		}
+		this.tamanho--;
+	}
+	
+	/**
+	 * Retorna o tamanho do vetor.
+	 * @return o tamanho do vetor
+	 */
 	public int tamanho() {
 		return this.tamanho;
 	}
@@ -111,4 +144,3 @@ public class Lista<T> {
 	}
 
 }
-

@@ -1,5 +1,9 @@
 package com.vitor.estruturadados.vetor;
 
+/**
+ * @deprecated use a classe {@link com.vitor.estruturadados.vetor.Lista} em vez desta.
+ */
+@Deprecated
 public class VetorObject {
 
 	private Object[] elementos;
@@ -54,7 +58,7 @@ public class VetorObject {
 	}
 	
 	
-	//verifica se o elemento existe e a posição.
+	//verifica se o elemento existe e a posiï¿½ï¿½o.
 	public Object busca(int posicao) {
 		if (!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao invalida");
@@ -64,7 +68,7 @@ public class VetorObject {
 
 	// verifica se o elemento existe no vetor;
 	public int busca(Object elemento) {
-		// algoritmo de ( Busca sequencial ) olha posição por posição se é o elemento que procuramos.
+		// algoritmo de ( Busca sequencial ) olha posiï¿½ï¿½o por posiï¿½ï¿½o se ï¿½ o elemento que procuramos.
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
 				return i;

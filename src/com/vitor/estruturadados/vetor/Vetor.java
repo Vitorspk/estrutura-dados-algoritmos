@@ -1,5 +1,9 @@
 package com.vitor.estruturadados.vetor;
 
+/**
+ * @deprecated use a classe {@link com.vitor.estruturadados.vetor.Lista} em vez desta.
+ */
+@Deprecated
 public class Vetor {
 
 	private String[] elementos;
@@ -22,10 +26,10 @@ public class Vetor {
 		return false;
 	}
 	
-	//adicionando dados em qualquer posição.
+	//adicionando dados em qualquer posiï¿½ï¿½o.
 	public boolean adiciona(int posicao, String elemento){
 		
-		//verificando se a posição é valida.
+		//verificando se a posiï¿½ï¿½o ï¿½ valida.
 		if (!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posicao invalida");
 		}
@@ -36,7 +40,7 @@ public class Vetor {
 			this.elementos[i+1] = this.elementos[i];
 		}
 		this.elementos[posicao] = elemento;
-		//atribuindo elemento a posição.
+		//atribuindo elemento a posiï¿½ï¿½o.
 		//adicionando 1 para o tamanho.
 		this.tamanho++;
 		return true;
@@ -56,7 +60,7 @@ public class Vetor {
 
 	// verifica se o elemento existe no vetor;
 	public int busca(String elemento) {
-		// algoritmo de ( Busca sequencial ) olha posição por posição se é o elemento que procuramos.
+		// algoritmo de ( Busca sequencial ) olha posiï¿½ï¿½o por posiï¿½ï¿½o se ï¿½ o elemento que procuramos.
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
 				return i;
